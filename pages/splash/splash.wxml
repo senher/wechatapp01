@@ -1,0 +1,21 @@
+<!--splash.wxml-->
+
+<view class="container log-list">
+  <view class="slide">
+    <swiper indicator="true" autoplay="true" interval="5000" duration="1000" >
+      <block wx:for="{{list}}" wx:key="{{item.id}}">
+        <swiper-item>
+        	<navigator url="../item/item?&id={{item.id}}" hover-class="none">
+	          <view class="image_box">
+	          	<image src="{{item.images.large}}" class="slide-image" mode="aspectFill"></image>
+	          </view>
+          </navigator>
+          <!-- <text>{{item.title}}</text> -->
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- <navigator url="../board/board" hover-class="none"> -->
+    <button class="start" bindtap="handleStart" wx:key="1">立即体验</button>
+    <!-- </navigator> -->
+  </view>
+</view>

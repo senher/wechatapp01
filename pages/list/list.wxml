@@ -1,0 +1,24 @@
+<loading hidden="{{!loading}}">
+	玩命加载中...
+</loading>
+<view class="hot-title">{{subtitle}}</view>
+<view class="list">
+  
+  	<navigator wx:for="{{list}}" wx:key="{{item.id}}" url="../item/item?&id={{item.id}}" hover-class="none">
+	    <view  class="list-item" >
+	    	<view class="list-item-image">
+	    		<image src="{{item.images.small}}" class="slide-image" mode="widthFix"></image>
+	    	</view>
+		    <view class="list-item-con">
+		    	<text class="item-title">{{item.title}}</text>
+		    	<text class="item-info">{{item.original_title}}({{item.year}})</text>
+		    	<text class="item-director">导演：{{item.title}}</text>
+		    </view>
+		    <view class="list-item-rating">
+		    	<text>{{item.rating.average}}</text>
+		  </view>
+	    </view>
+    </navigator>
+  
+    
+ </view>

@@ -1,0 +1,48 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">Hello{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+  <!-- <view class="slide">
+    <swiper indicator="true" autoplay="true" interval="5000" duration="1000" >
+      <block wx:for="{{res}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" mode="aspectFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view> -->
+  
+  <view class="board">
+    <navigator url="../list/list?type=in_theaters&name=正在热映" hover-class="none">
+      <view class="board-item">
+        <text>正在热映</text>
+        <image src="../../images/arrowright.png" mode="aspectFill"></image>
+      </view>
+    </navigator>
+    <navigator url="../list/list?type=coming_soon&name=即将上映" hover-class="none">
+      <view class="board-item">
+        <text>即将上映</text>
+        <image src="../../images/arrowright.png" mode="aspectFill"></image>
+      </view>
+    </navigator>
+    <navigator url="../list/list?type=new_movies&name=新片榜" hover-class="none">
+      <view class="board-item">
+        <text>新片榜</text>
+        <image src="../../images/arrowright.png" mode="aspectFill"></image>
+      </view>
+    </navigator>
+    <navigator url="../list/list?type=top250&name=Top250" hover-class="none">
+      <view class="board-item">
+        <text>Top250</text>
+        <image src="../../images/arrowright.png" mode="aspectFill"></image>
+      </view>
+    </navigator>
+  </view>
+  
+</view>

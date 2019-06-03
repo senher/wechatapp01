@@ -1,0 +1,75 @@
+<loading hidden="{{!loading}}">
+	玩命加载中...
+</loading>
+<view class="item-view">
+	<!-- 背景图 -->
+	<image class="background" src="{{view.images.large}}" mode="aspectFill"></image>
+	<!-- 大图与标题 -->
+	<view class="image">
+		<image src="{{view.images.medium}}" mode="widthFix" ></image>
+	</view>
+	<text class="title">{{view.title}}({{view.year}})</text>
+	<text class="genres">类型：{{view.genres}}</text>
+	<text class="genres">标签：{{view.tags}}</text>
+	<!-- 导演，演员 -->
+	<view class="viewCon">
+		<text wx:if="{{view.rating.average>9}}" class="red">评分：{{view.rating.average}}</text>
+		<text wx:else class="blue">评分：{{view.rating.average}}</text>	
+
+		<text class="directorsTitle" decode="{{true}}">导演</text>
+		<block wx:for="{{ view.directors }}" wx:key="id" > 
+			<view class="directors">
+				<image src="{{ item.avatars.medium}}" mode="widthFix"></image>
+				<text class="directorsName"  decode="true" >{{item.name_en}}&nbsp;({{item.name}})</text>
+			</view>
+		</block>
+	</view>
+
+	<view class="castsBox">
+
+		<text>主演</text>
+		<view class="casts">
+			<view wx:for="{{view.casts}}" class="castsItem" wx:key="id">
+				<image src="{{item.avatars.small}}" mode="widthFix"></image>
+				<text>{{item.name}}</text>
+			</view>
+		</view>
+	</view>	
+	
+	<!-- 影片简介 -->
+	<view class="movieSummary">
+		<text decode="true" class="summaryTitle">影片简介：&nbsp;</text>
+		<text class="summaryCon">{{view.summary}}</text>
+	</view>
+
+		
+	<!-- 图片 -->
+	<view class="slide">
+    <swiper indicator-dots="true" indicator-color="rgba(255,255,255, .3)" indicator-active-color="#fff" autoplay="true" interval="5000" duration="1000" >
+      <block wx:for="{{view.photos}}" wx:key="id">
+        <swiper-item>
+          <image src="{{item.image}}" class="slide-image" mode="widthFix"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+	
+	<!-- 一些评论 -->
+	<view class="movieReviews">
+			<text class="reviewsTitle">影片评论：</text>
+			<block wx:for="{{view.popular_comments}}" wx:key="id">
+				<view class="reviewsInfo">
+					<view class="authorAvatar">
+						<view class="avatarImg">
+							<image src="{{item.author.avatar}}"></image>
+						</view>
+						
+						<view class="authorTitle">{{item.content}}</view>
+					</view>
+					
+				</view>
+			</block>
+	</view>
+
+</view>
